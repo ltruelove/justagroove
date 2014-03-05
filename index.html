@@ -5,6 +5,7 @@
     <script src="pkg/phaser.js"></script>
     <script src="src/Preloader.js"></script>
     <script src="src/MainMenu.js"></script>
+    <script src="src/Level.js"></script>
 
 </head>
 <body >
@@ -12,8 +13,7 @@
         var game = new Phaser.Game(600,720, Phaser.Auto);
         game.state.add('preloader', MainGame.Preloader, true);
         game.state.add('mainmenu', MainGame.MainMenu);
-        //game.state.add('level1', MainGame.BunnyGame);
-        //game.state.add('level2', MainGame.Level2);
+        game.state.add('level', MainGame.Level);
     </script>
     </body>
 </html>
