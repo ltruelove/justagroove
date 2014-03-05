@@ -1,0 +1,44 @@
+{"frames": {
+
+"arrow":
+{
+	"frame": {"x":191,"y":2,"w":301,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":301,"h":60},
+	"sourceSize": {"w":301,"h":62}
+},
+"blue_ball":
+{
+	"frame": {"x":128,"y":2,"w":61,"h":61},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":61},
+	"sourceSize": {"w":61,"h":61}
+},
+"green_ball":
+{
+	"frame": {"x":65,"y":2,"w":61,"h":61},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":61},
+	"sourceSize": {"w":61,"h":61}
+},
+"red_ball":
+{
+	"frame": {"x":2,"y":2,"w":61,"h":61},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":61},
+	"sourceSize": {"w":61,"h":61}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "groove_sprites.png",
+	"format": "RGBA8888",
+	"size": {"w":494,"h":65},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:9a19fd33d295e7a11311992142ec333f:aef75386d5a1683b6a4b11949089d65c:7dfbcb660b7ee381bfce8dc677f0308d$"
+}
+}
