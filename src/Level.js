@@ -1,7 +1,7 @@
 MainGame.Level = function(game) {
     this.game = game;
     this.arrowSprite = null;
-    this.goalSprite = null;
+    this.ballSprite = null;
     this.map = null;
     this.tileset = null;
     this.layer = null;
@@ -17,10 +17,13 @@ MainGame.Level = function(game) {
     this.jumpButton = null;
     this.walkFrames = null;
     this.playerAnimFrames = 15;
+    this.xVel = 0;
+    this.yVel = -200;
 };
 
 MainGame.Level.prototype = {
     preload: function(){
+        this.game.stage.backgroundColor = '#0072bc';
         this.game.stage.scale.maxWidth = 600;
         this.game.stage.scale.maxHeight = 720;
         this.game.stage.scaleMode = Phaser.StageScaleMode.SHOW_ALL;
@@ -36,20 +39,41 @@ MainGame.Level.prototype = {
     },
     
     create: function() {
-        this.arrowSprite = this.game.add.sprite(this.game.world.centerX,570,'sprites','arrow');
-        this.arrowSprite.pivot.x = 270;
-        this.arrowSprite.pivot.y = 30;
-        this.arrowSprite.rotation = 45;
+        this.arrowSprite = this.game.add.sprite(this.game.world.centerX,585,'sprites','arrow');
+        this.ballSprite = this.game.add.sprite(this.game.world.centerX,585,'sprites','red_ball');
+
+        this.ballSprite.anchor.setTo(0.5,0.5);
+        this.ballSprite.body.collideWorldBounds = true;
+        this.ballSprite.body.bounce.setTo(1,1);
+
+        this.arrowSprite.pivot.x = 135;
+        this.arrowSprite.pivot.y = 15;
+        this.arrowSprite.rotation = 1.57;
     },
     
     update: function(){
+        this.arrowSprite.body.angularVelocity = 0;
 
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
-            this.arrowSprite.rotation -= 0.02;
+                this.arrowSprite.body.angularVelocity = -150;
+                this.xVel -= 10;
         }else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
-            this.arrowSprite.rotation += 0.02;
+            if(this.arrowSprite.rotation < 3.1){
+                this.arrowSprite.body.angularVelocity = 150;
+                this.xVel += 10;
+            }
+        }else if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)){
+            this.game.physics.velocityFromAngle(-180 + this.arrowSprite.angle, 500, this.ballSprite.body.velocity);
         }
-    }
+    },
+
+    render: function() {
+
+        this.game.debug.renderSpriteInfo(this.arrowSprite, 32, 32);
+        this.game.debug.renderSpriteInfo(this.ballSprite, 32, 32);
+        this.game.debug.renderText('rotation: ' + this.arrowSprite.rotation, 32, 200);
+
+    }  
 
 }
 
